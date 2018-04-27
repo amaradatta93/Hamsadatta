@@ -29,9 +29,10 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # USERNAME and PASSWORD
-DB_USERNAME = os.getenv('USERNAME')
-DB_PASSWORD = os.getenv('PASSWORD')
-DB_PORT = os.getenv('PORT', '5432')
+DB_NAME = os.getenv('DB_NAME')
+DB_USERNAME = os.getenv('DB_USERNAME')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_PORT = os.getenv('DB_PORT', '5432')
 
 
 # Application definition
@@ -81,8 +82,8 @@ WSGI_APPLICATION = 'darpana.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hamsadatta',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
         'USER': DB_USERNAME,
         'PASSWORD': DB_PASSWORD,
         'HOST': 'localhost',
