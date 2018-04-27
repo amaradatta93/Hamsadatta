@@ -38,6 +38,7 @@ DB_PORT = os.getenv('DB_PORT', '5432')
 # Application definition
 
 INSTALLED_APPS = [
+    'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
