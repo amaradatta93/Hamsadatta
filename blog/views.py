@@ -21,5 +21,21 @@ def add_content(request):
     return redirect('/')
 
 
+def edit_content(request):
+    return HttpResponse('We will edit content here')
+
+
 def delete_content(request):
     return HttpResponse('We will delete content here')
+
+
+def add_category(request):
+    return HttpResponse('We will add category here')
+
+
+def edit_category(request):
+    return HttpResponse('We will edit category here')
+
+
+def delete_category(request):
+    return HttpResponse('We will delete category here')
