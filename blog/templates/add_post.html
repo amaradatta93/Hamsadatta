@@ -10,31 +10,67 @@
             <div class="col-lg-6">
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="title" placeholder="Title">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Title">
                 </div>
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="slug" placeholder="Slug">
+                    <label for="slug">Slug</label>
+                    <input type="text" class="form-control" id="slug" placeholder="Slug">
                 </div>
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="image" placeholder="Image URL">
+                    <label for="image_url">Image</label>
+                    <input type="text" class="form-control" id="image_url" placeholder="Image URL">
                 </div>
 
                 <div class="form-group row">
-                    <textarea class="form-control" name="content" placeholder="Content"></textarea>
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" placeholder="Content"></textarea>
                 </div>
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="posted" placeholder="Posted">
+                    <label for="posted">Date Posted</label>
+                    <input type="date" class="form-control" id="posted" placeholder="Posted">
                 </div>
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="language" placeholder="Language">
+                    <label for="language">Select Language</label>
+                    <select class="form-control" id="language">
+                        <option selected>Choose the language</option>
+                        <option value="kannada">Kannada</option>
+                        <option value="english">English</option>
+                    </select>
                 </div>
 
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="category" placeholder="Category">
+                    <div class="col-sm">
+                        Categories -->
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="poem" id="poem">
+                        <label class="form-check-label" for="poem">Poem</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="article" id="article">
+                        <label class="form-check-label" for="article">Article</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="snippet" id="snippet">
+                        <label class="form-check-label" for="snippet">Snippet</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="random" id="random">
+                        <label class="form-check-label" for="random">Random</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="kannada" id="kannada">
+                        <label class="form-check-label" for="kannada">Kannada</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="english" id="english">
+                        <label class="form-check-label" for="english">English</label>
+                    </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
