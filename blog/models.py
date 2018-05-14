@@ -7,6 +7,12 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, db_index=True)
 
+    def __unicode__(self):
+        return {
+            'name': self.name,
+            'slug': self.slug
+        }
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100, unique=True)

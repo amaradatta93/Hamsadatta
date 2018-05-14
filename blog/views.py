@@ -1,41 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.http import JsonResponse
 
-from .forms import BlogForm
-from .models import BlogPost
+from .models import Category
 
 
-def add_content(request):
-    if request.method == "POST":
-        blog_post_form = BlogForm(request.POST)
-
-        if blog_post_form.is_valid():
-            blog_post = BlogPost()
-            blog_post.title = blog_post_form.cleaned_data['title']
-            blog_post.slug = blog_post_form.cleaned_data['slug']
-            blog_post.content = blog_post_form.cleaned_data['content']
-            blog_post.posted = blog_post_form.cleaned_data['posted']
-            blog_post.language = blog_post_form.cleaned_data['language']
-            blog_post.category = blog_post_form.cleaned_data['category']
-            blog_post.save()
-    return redirect('/')
+def view_content(request):
+    pass
 
 
-def edit_content(request):
-    return HttpResponse('We will edit content here')
-
-
-def delete_content(request):
-    return HttpResponse('We will delete content here')
-
-
-def add_category(request):
-    return HttpResponse('We will add category here')
-
-
-def edit_category(request):
-    return HttpResponse('We will edit category here')
-
-
-def delete_category(request):
-    return HttpResponse('We will delete category here')
+def view_category(request):
+    categories = Category.objects.all()
+    JsonResponse(request, {categories: 'categories'})
