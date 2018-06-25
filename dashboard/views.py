@@ -1,31 +1,38 @@
+import json
+
 from django.contrib import messages
 from django.db import IntegrityError
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt
 
-from blog.forms import BlogForm
 from blog.models import BlogPost
 
 
+@csrf_exempt
 def add_content(request):
     if request.method == "POST":
-        blog_post_form = BlogForm(request.POST)
 
-        if blog_post_form.is_valid():
-            blog_post = BlogPost()
-            blog_post.title = blog_post_form.cleaned_data['title']
-            blog_post.slug = blog_post_form.cleaned_data['slug']
-            blog_post.content = blog_post_form.cleaned_data['content']
-            blog_post.posted = blog_post_form.cleaned_data['posted']
-            blog_post.language = blog_post_form.cleaned_data['language']
-            blog_post.category = blog_post_form.cleaned_data['category']
+        body_unicode = request.body.decode(encoding='UTF-8')
+        body = json.loads(body_unicode)
 
-            try:
-                blog_post.save()
-                messages.success(request, 'Saved the Post')
-            except IntegrityError:
-                messages.warning(request, 'Post already exists')
-    return redirect('/dashboard')
+        blog_post = BlogPost()
+        blog_post.title = body['title']
+        blog_post.slug = body['slug']
+        blog_post.content = body['content']
+        blog_post.posted = body['posted']
+        blog_post.language = body['language']
+        # blog_post.categories = body['categories']
+
+        try:
+            blog_post.save()
+            messages.success(request, 'Saved the Post')
+            return HttpResponse('Saved')
+        except IntegrityError:
+            messages.warning(request, 'Post already exists')
+            return HttpResponse('Not saved')
+    else:
+        return HttpResponse("form not valid")
+    # return redirect('/blog')
 
 
 def edit_content(request):

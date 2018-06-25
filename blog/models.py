@@ -22,3 +22,14 @@ class BlogPost(models.Model):
     posted = models.DateField()
     language = models.CharField(max_length=15)
     categories = models.ManyToManyField(Category)
+
+    def __unicode__(self):
+        return {
+            'title': self.title,
+            'slug': self.slug,
+            'image': self.image,
+            'content': self.content,
+            'posted': self.posted,
+            'language': self.language,
+            'categories': self.categories
+        }
