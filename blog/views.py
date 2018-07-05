@@ -1,8 +1,3 @@
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-import pprint
-
-
 from .models import Category, BlogPost
 
 
@@ -16,7 +11,13 @@ def view_content(request):
 
 
 def view_category(request):
-    # name_cat = list(Category.objects.filter(slug='asdfg'))
-    # name_cat = get_object_or_404(Category)
-    # print(name_cat)
-    pass
+    categories = Category.objects.all()
+    categories_content = categories.values('name')
+    category_name = []
+    # print(categories_content)
+    for values in categories_content:
+        # print(values)
+        # print(values['name'])
+        category_name += [values['name']]
+    print(category_name)
+    return category_name
