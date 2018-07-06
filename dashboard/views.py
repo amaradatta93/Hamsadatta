@@ -29,10 +29,9 @@ def add_content(request):
             blog_post.save()
             try:
                 for each_category in body['categories']:
-                    category_post = Category(name=each_category)
-                    print(category_post)
-                    blog_post.save()
+                    category_post = Category.objects.get(name=each_category)
                     blog_post.categories.add(category_post)
+                    blog_post.save()
             except:
                 print('error occured')
             messages.success(request, 'Saved the Post')
