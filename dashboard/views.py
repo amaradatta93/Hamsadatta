@@ -3,6 +3,7 @@ import json
 from django.contrib import messages
 from django.db import IntegrityError
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
 from blog.models import BlogPost, Category
@@ -27,13 +28,14 @@ def add_content(request):
 
         try:
             blog_post.save()
-            try:
-                for each_category in body['categories']:
-                    category_post = Category.objects.get(name=each_category)
-                    blog_post.categories.add(category_post)
-                    blog_post.save()
-            except:
-                print('error occured')
+            # try:
+            for each_category in body['categories']:
+                # category_post = Category.objects.get(name=each_category)
+                category_post = get_object_or_404(Category, name=each_category)
+                blog_post.categories.add(category_post)
+                blog_post.save()
+            # except:
+            #     print('error occured')
             messages.success(request, 'Saved the Post')
             return HttpResponse('Saved')
         except IntegrityError:
