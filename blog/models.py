@@ -5,6 +5,9 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, db_index=True)
 
+    class Meta:
+        ordering = ('name',)
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100, unique=True)
@@ -13,4 +16,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     posted = models.DateField()
     language = models.CharField(max_length=15)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, blank=False)
+
+    class Meta:
+        ordering = ('posted',)
