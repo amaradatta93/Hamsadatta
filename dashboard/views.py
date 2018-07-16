@@ -28,17 +28,18 @@ def add_content(request):
         except IntegrityError:
             messages.warning(request, 'Post already exists')
             return HttpResponse('Not saved')
-        try:
-            for each_category in body['categories']:
-                category_post = get_object_or_404(Category, name=each_category)
+        for each_category in body['categories']:
+            try:
+                category_post = Category.objects.get(name=each_category)
                 print(category_post.name)
                 blog_post.categories.add(category_post)
                 blog_post.save()
                 messages.success(request, 'Saved the Post')
                 return HttpResponse('Saved')
+            except Category.DoesNotExist:
+                #  redirect to edit category
+                return HttpResponse('Undefined category')
 
-        except:
-            return HttpResponse('Undefined category')
     else:
         return HttpResponse("form not valid")
     # return redirect('/blog')
