@@ -21,9 +21,13 @@ def view_title_category(request):
     return HttpResponse(posts)
 
 
-def view_category(request, category_id):
-    categories = get_object_or_404(Category, pk=category_id)
-    return JsonResponse(categories.as_dict())
+def view_category(request):
+    # categories = get_object_or_404(Category, pk=category_id)
+    categories = Category.objects.values('name')
+    pprint.pprint(categories)
+    for i in categories:
+        print(i)
+    return HttpResponse(categories)
     # categories = Category.objects.all()
     # categories_content = categories.values('name')
     # category_name = []
