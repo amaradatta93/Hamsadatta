@@ -95,5 +95,14 @@ def edit_category(request, category_id):
             return HttpResponse('Category is the same')
 
 
-def delete_category(request):
+@csrf_exempt
+def delete_category(request, category_id):
+    if request.method == "DELETE":
+        category = get_object_or_404(Category, pk=category_id)
+
+        try:
+            category.delete()
+            return HttpResponse('Category deleted')
+        except:
+            return HttpResponse('Not able to delete the category')
     return HttpResponse('We will delete category here')
