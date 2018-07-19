@@ -75,8 +75,24 @@ def add_category(request):
         return HttpResponse("Form not valid")
 
 
-def edit_category(request):
-    return HttpResponse('We will edit category here')
+@csrf_exempt
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, pk=category_id)
+    if request.method == "POST":
+        body_unicode = request.body.decode(encoding='UTF-8')
+        body = json.loads(body_unicode)
+
+        category.name = body['name']
+        print(category.name)
+        print(body['name'])
+        category.slug = body['slug']
+        # print(body.name, "bn")
+
+        try:
+            category.save()
+            return HttpResponse('Category is saved')
+        except IntegrityError:
+            return HttpResponse('Category is the same')
 
 
 def delete_category(request):

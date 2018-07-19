@@ -13,7 +13,7 @@ class Category(models.Model):
         }
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('id',)
 
 
 class BlogPost(models.Model):
