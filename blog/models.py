@@ -14,7 +14,7 @@ class Category(models.Model):
     #     }
 
     def get_absolute_url(self):
-        return reverse('Category-details', kwargs={'pk': self.pk})
+        return reverse('dashboard:details', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ('id',)
