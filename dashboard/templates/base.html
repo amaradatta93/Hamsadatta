@@ -17,6 +17,7 @@
 
 
 
+
     </style>
 
     <title>Darpana</title>
@@ -39,48 +40,46 @@
         </div>
     </div>
 
-        <!--<div class="row">-->
-        <div class="conatiner">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <div class="container d-flex justify-content-between">
-                    <a class="navbar-brand" href="#">ದರ್ಪಣ</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+    <div class="conatiner">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container d-flex justify-content-between">
+                <a class="navbar-brand" href="#">ದರ್ಪಣ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    ಪ್ರವರ್ಗ
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">English</a>
-                                    <a class="dropdown-item" href="#">ಕನ್ನಡ</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">ಕವನಗಳು</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="ಅನ್ವೇಷಿಸು"
-                                   aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ಅನ್ವೇಷಿಸು</button>
-                        </form>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ವಿಭಾಗ
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">English</a>
+                                <a class="dropdown-item" href="#">ಕನ್ನಡ</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">ಕವನಗಳು</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="ಅನ್ವೇಷಿಸು"
+                               aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ಅನ್ವೇಷಿಸು</button>
+                    </form>
                 </div>
-            </nav>
-        </div>
-        <!--</div>-->
-    <!--</div>-->
+            </div>
+        </nav>
+    </div>
 </header>
+
 <body>
 <div class="container container-fluid h-100">
     <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6 panel">
+        <div class="col-lg-12 panel">
             {% csrf_token %}
             {% block content %}
             {% endblock %}
