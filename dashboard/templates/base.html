@@ -15,9 +15,6 @@
             height: 100%;
         }
 
-
-
-
     </style>
 
     <title>Darpana</title>
@@ -77,13 +74,11 @@
 </header>
 
 <body>
-<div class="container container-fluid h-100">
-    <div class="row align-items-center justify-content-center">
-        <div class="col-lg-12 panel">
-            {% csrf_token %}
-            {% block content %}
-            {% endblock %}
-        </div>
+<div class="row align-items-center justify-content-center">
+    <div class="col-lg-12 panel">
+        {% csrf_token %}
+        {% block content %}
+        {% endblock %}
     </div>
 </div>
 
