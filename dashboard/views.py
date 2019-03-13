@@ -42,8 +42,8 @@ def view_category(request):
 
 
 def view_content(request, blog_id):
-    posts = get_object_or_404(BlogPost, pk=blog_id)
-    pprint.pprint(posts.content)
-    return JsonResponse(posts.as_dict())
-    # return post_contents
+    post_content = get_object_or_404(BlogPost, pk=blog_id)
+    pprint.pprint(post_content.content)
+    # return JsonResponse(posts.as_dict())
+    return render(request, 'content.html', {"contents": post_content.as_dict()})
 
