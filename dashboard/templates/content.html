@@ -1,11 +1,28 @@
 {% include 'base.html' %}
 {% block content %}
 
-{{ contents }}
-{{ contents.title }}
-{{ contents.language }}
-{{ contents.content }}
-{{ contents.date }}
-{{ contents.slug }}
+<div class="col-md-12">
+    <div class="row mt-2 justify-content-center align-items-center">
+        <div class="col-md-8">
+            <img src="https://lab.getapp.com/wp-content/uploads/2016/09/HEAD-5-Ways-to-easily-measure-the-success-of-any-blog-post.png"
+                 class="img-fluid" alt="blog_post">
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-3">
+            <h1 class="text-center text-info"> {{ contents.title }} </h1>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-8 text-justify">
+            {{ contents.image }}
+            {{ contents.language }}
+            {{ contents.content }}
+            {{ contents.date }}
+            {{ contents.slug }}
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}
