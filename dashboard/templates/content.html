@@ -9,20 +9,23 @@
         </div>
     </div>
     <div class="row justify-content-center align-items-center">
-        <div class="col-md-3">
+        <div class="col-md-4 text-justify">
             <h1 class="text-center text-info"> {{ contents.title }} </h1>
         </div>
     </div>
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-8 text-justify">
-            {{ contents.image }}
-            {{ contents.language }}
+    <div class="row mb-3 mt-3 justify-content-center align-items-center">
+        <div class="col-md-4 text-justify">
             {{ contents.content }}
-            {{ contents.date }}
-            {{ contents.slug }}
         </div>
     </div>
-
+    <div class="row mb-3 mt-3 justify-content-center align-items-center">
+        <div class="col-md-2 col-group list-group-item-info text-start">
+                Date: {{ contents.posted }}
+        </div>
+        <div class="col-md-2 col-group list-group-item-info text-end">
+                Language: {{ contents.language }}</div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

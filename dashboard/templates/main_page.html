@@ -16,12 +16,12 @@
                                 <p class="card-text">{{ post.title }}</p>
                             </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                <a href="{% url 'blog:each_post' blog_id=post.pk %}" class="btn btn-sm btn-outline-secondary" role="button">
                                     <i class="fa fa-eye"></i> ಓದು
-                                </button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary" role="button">
                                     <i class="far fa-edit"></i> ತಿದ್ದು
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

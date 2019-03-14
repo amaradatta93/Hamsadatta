@@ -6,19 +6,8 @@ from django.shortcuts import get_object_or_404, render
 from blog.models import Category, BlogPost
 
 
-def view_title_category(request):
-    # posts = BlogPost.objects.all()
-    # post_contents = list(posts.values('title', 'slug'))
-    # for values in post_contents:
-    #     print(values)
-    # return post_contents
-    # posts = get_object_or_404(BlogPost, 'title')
-    posts = BlogPost.objects.values('title')
-    # titles = list(pos)
-    pprint.pprint(posts)
-    for i in posts:
-        print(i)
-    # return HttpResponse(posts)
+def view_all_blog_post(request):
+    posts = BlogPost.objects.values('title', 'pk')
     return render(request, 'main_page.html', {'posts': posts})
 
 
@@ -43,7 +32,5 @@ def view_category(request):
 
 def view_content(request, blog_id):
     post_content = get_object_or_404(BlogPost, pk=blog_id)
-    pprint.pprint(post_content.content)
-    # return JsonResponse(posts.as_dict())
     return render(request, 'content.html', {"contents": post_content.as_dict()})
 
