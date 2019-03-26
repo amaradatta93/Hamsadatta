@@ -6,13 +6,6 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, db_index=True)
 
-    # def as_dict(self):
-    #     return {
-    #         'id': self.pk,
-    #         'name': self.name,
-    #         'slug': self.slug,
-    #     }
-
     def get_absolute_url(self):
         return reverse('dashboard:details', kwargs={'pk': self.pk})
 
