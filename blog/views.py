@@ -119,9 +119,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 #     pass
 
 
-class CategoryCreate(CreateView):
-    model = Category
-    fields = ['name', 'slug']
+# class CategoryCreate(CreateView):
+#     model = Category
+#     fields = ['name', 'slug']
 
 
 class BlogPostCreate(CreateView):
