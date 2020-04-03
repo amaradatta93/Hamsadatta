@@ -4,7 +4,7 @@ from blog.models import BlogPost
 
 
 def view_all_blog_post(request):
-    posts = BlogPost.objects.values('title', 'pk')
+    posts = BlogPost.objects.values('title', 'pk', 'image')
     return render(request, 'main_page.html', {'posts': posts})
 
 

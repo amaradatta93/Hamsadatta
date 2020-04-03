@@ -3,19 +3,19 @@
 
 <div class="col-md-12">
     <div class="row mt-2 justify-content-center align-items-center">
-        <div class="col-md-8">
-            <img src="https://lab.getapp.com/wp-content/uploads/2016/09/HEAD-5-Ways-to-easily-measure-the-success-of-any-blog-post.png"
+        <div class="col-md-8 text-center">
+            <img src="{{ contents.image }}"
                  class="img-fluid" alt="blog_post">
         </div>
     </div>
-    <div class="row justify-content-center align-items-center">
+    <div class="row  mt-3 justify-content-center align-items-center">
         <div class="col-md-4 text-justify">
             <h1 class="text-center text-info"> {{ contents.title }} </h1>
         </div>
     </div>
-    <div class="row mb-3 mt-3 justify-content-center align-items-center">
-        <div class="col-md-4 text-justify">
-            {{ contents.content }}
+    <div class="row mb-3 mt-2 justify-content-center align-items-center">
+        <div class="col-md-6 text-center">
+            {{ contents.content|linebreaks }}
         </div>
     </div>
     <div class="row mb-3 mt-3 justify-content-center align-items-center">
