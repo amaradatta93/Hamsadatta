@@ -10,7 +10,19 @@ def view_all_blog_post(request):
 
 def view_categories_blog_post(request, category_id):
     posts = BlogPost.objects.filter(categories=category_id)
-    return render(request, 'main_page.html', {'posts': posts})
+    if posts:
+        return render(request, 'main_page.html', {'posts': posts})
+    else:
+        return render(request, 'main_page.html', {'errors': 'No post in this category yet'})
+
+
+def view_search_blog_post(request):
+    search_param = request.GET.get('search_param')
+    posts = BlogPost.objects.filter(slug__contains=search_param)
+    if posts:
+        return render(request, 'main_page.html', {'posts': posts})
+    else:
+        return render(request, 'main_page.html', {'errors': 'Search result not found'})
 
 
 def view_content(request, blog_id):

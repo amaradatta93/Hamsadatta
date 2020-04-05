@@ -14,9 +14,9 @@ class Category(models.Model):
 
 
 class BlogPost(models.Model):
-    English = 'eng'
-    Kannada = 'kan'
-    Others = 'oth'
+    English = 'English'
+    Kannada = 'Kannada'
+    Others = 'Others'
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     image = models.URLField()
@@ -43,4 +43,4 @@ class BlogPost(models.Model):
         return reverse('dashboard:each_post', kwargs={'blog_id': self.pk})
 
     class Meta:
-        ordering = ('posted',)
+        ordering = ('-posted', )

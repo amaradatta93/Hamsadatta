@@ -14,5 +14,10 @@ class BlogPostCreate(CreateView):
             form_class = self.get_form_class()
 
         form = super(BlogPostCreate, self).get_form(form_class)
-        form.fields['posted'].widget = forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy'})
+        form.fields['posted'].widget = forms.TextInput(attrs={'placeholder': 'mm/dd/yyyy'})
         return form
+
+    def form_valid(self, form):
+        slug = str(form.instance.title).replace(" ", '-').lower()
+        form.instance.slug = slug
+        return super(BlogPostCreate, self).form_valid(form)
