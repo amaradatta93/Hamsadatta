@@ -17,15 +17,11 @@
             height: 100%;
         }
 
-
-
-
-
     </style>
 
     <title>ದರ್ಪಣ</title>
-
 </head>
+
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarHeader">
@@ -44,10 +40,14 @@
                         ವಿಭಾಗ
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">English</a>
-                        <a class="dropdown-item" href="#">ಕನ್ನಡ</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">ಇತರೆ</a>
+                        {% for category in categories %}
+                        <a class="dropdown-item" href="{% url 'dashboard:categories' category_id=category.pk %}">
+                            {{category.name}}
+                        </a>
+                        {% if category.pk != categories|length %}
+                            <div class="dropdown-divider"></div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </li>
                 <li class="nav-item">
