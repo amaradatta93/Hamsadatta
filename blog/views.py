@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import get_object_or_404
-from django.views.generic.edit import CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import BlogPostForm
 from .models import BlogPost
@@ -35,3 +36,14 @@ class BlogPostCreate(BlogPostClean, CreateView):
 
 class BlogPostUpdate(BlogPostClean, UpdateView):
     pass
+
+
+class BlogPostDelete(BlogPostClean, DeleteView):
+    form_class = None
+    success_url = reverse_lazy('dashboard:posts')
+
+    def get_form(self, form_class=None):
+        pass
+
+    def form_valid(self, form):
+        pass

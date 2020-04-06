@@ -1,0 +1,26 @@
+{% include 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="col-md-12">
+
+        <form method="post">{% csrf_token %}
+            <div class="row mt-3 justify-content-center align-items-center">
+                <div class="col-md-6 mb-2">
+                    <p>Are you sure you want to delete "{{ object.title }}"?</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4 text-justify">
+                    <input class="btn btn-danger" type="submit" value="Confirm">
+                    <a href="{% url 'blog:edit' blog_id=object.pk %}" type="button" class="btn btn-warning">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
