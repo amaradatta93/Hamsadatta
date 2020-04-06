@@ -12,5 +12,6 @@ urlpatterns = [
     # path('edit_category/<int:category_id>', views.edit_category, name='edit_category'),
     # path('delete_category/<int:category_id>', views.delete_category, name='delete_category'),
     path('add', views.BlogPostCreate.as_view(), name='add'),
+    path('edit/<int:blog_id>', views.BlogPostUpdate.as_view(), name='edit'),
     # path('category/add/', views.CategoryCreate.as_view(), name='category-add'),
 ]

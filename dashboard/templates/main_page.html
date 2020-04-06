@@ -35,7 +35,8 @@
                                class="btn btn-sm btn-outline-secondary" role="button">
                                 <i class="fa fa-eye"></i> ಓದು
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary" role="button">
+                            <a href="{% url 'blog:edit' blog_id=post.pk %}"
+                               class="btn btn-sm btn-outline-secondary" role="button">
                                 <i class="far fa-edit"></i> ತಿದ್ದು
                             </a>
                         </div>

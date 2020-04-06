@@ -26,7 +26,9 @@
                 </div>
                 {% endfor %}
 
-                <button type="submit">Submit</button>
+                <button class="btn btn-success" type="submit">Submit</button>
+                <a href="{% url 'dashboard:posts' %}" class="btn btn-warning">Cancel</a>
+
             </form>
         </div>
     </div>
