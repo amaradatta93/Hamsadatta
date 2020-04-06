@@ -20,6 +20,6 @@ app_name = 'main'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('me/', include('dashboard.urls')),
+    path('admin-dashboard/', include('dashboard.urls')),
     path('blog/', include('blog.urls')),
 ]
