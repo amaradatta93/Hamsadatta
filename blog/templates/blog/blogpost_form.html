@@ -29,10 +29,12 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <button class="btn btn-success" type="submit">Submit</button>
+                        {% if object.pk %}
                         <a href="{% url 'dashboard:posts' %}" class="btn btn-warning">Cancel</a>
                         <a href="{% url 'blog:delete' blog_id=object.pk %}" class="btn btn-danger">
                             <i class="fa fa-trash-alt"></i> Delete
                         </a>
+                        {% endif %}
                     </div>
                 </div>
             </form>

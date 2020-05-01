@@ -27,6 +27,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'test')
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200",
+    "http://127.0.0.1:8000"
+]
 
 
 # USERNAME and PASSWORD
@@ -41,6 +45,8 @@ DB_PORT = os.getenv('DB_PORT', '5432')
 INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'blog.apps.BlogConfig',
+    'userview.apps.UserviewConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +58,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -138,3 +145,6 @@ TEMPLATE_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "dist"),
+]

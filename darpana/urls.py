@@ -21,5 +21,6 @@ app_name = 'main'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin-dashboard/', include('dashboard.urls')),
+    path('api/user-dashboard/', include('userview.urls')),
     path('blog/', include('blog.urls')),
 ]
