@@ -7,11 +7,11 @@ import { Dash } from '../models/dash';
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.component.html',
+  templateUrl: '../dashboard/dashboard.component.html',
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  @Output() categoryPost: Dash[];
+  posts: Dash[];
   id: any;
 
   constructor(private categoryviewService: CategoryviewService,
@@ -22,7 +22,7 @@ export class CategoryComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = params.get('pk');
     this.categoryviewService.getCategoryPosts(this.id)
-    .subscribe(categoryPost => this.categoryPost = categoryPost);
+    .subscribe(posts => this.posts = posts);
     })
   }
   
