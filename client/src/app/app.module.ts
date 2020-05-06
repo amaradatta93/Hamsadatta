@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PostComponent } from './post/post.component';
     AppComponent,
     DashboardComponent,
     NavbarComponent,
-    PostComponent
+    PostComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

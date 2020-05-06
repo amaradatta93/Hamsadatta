@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Dash } from '../models/dash';
 import { DashviewService } from '../services/dashview.service';
@@ -9,7 +9,7 @@ import { DashviewService } from '../services/dashview.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  posts: Dash;
+  @Input() posts: Dash;
 
   constructor(private dashviewService: DashviewService) {
   }

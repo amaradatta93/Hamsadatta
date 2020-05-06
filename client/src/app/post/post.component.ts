@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
+
 import { Article } from '../models/article';
 import { PostviewService } from '../services/postview.service';
 
@@ -21,4 +23,5 @@ export class PostComponent implements OnInit {
         .subscribe(blogpost => this.blogpost = blogpost);
     })
   }
+  
 }

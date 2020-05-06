@@ -13,7 +13,6 @@ export class DashviewService {
   constructor(private http: HttpClient) {
   }
 
-  // private dashboardUrl = '../api/user-dashboard/posts';
   private dashboardUrl = 'http://127.0.0.1:8000/api/user-dashboard/posts';
 
   getPosts(): Observable<Dash> {
