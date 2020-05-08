@@ -1,8 +1,10 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="navbarHeader">
-    <a class="navbar-brand" routerLink="/dashboard">ದರ್ಪಣ</a>
+    <a class="navbar-brand" routerLink="/dashboard">
+        ದರ್ಪಣ
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -10,23 +12,30 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ವಿಭಾಗ 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ವಿಭಾಗ
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a *ngFor="let each_category of category" class="dropdown-item" routerLink="/category/{{ each_category.pk }}">
+                    <a *ngFor="let each_category of category" class="dropdown-item"
+                        routerLink="/category/{{ each_category.pk }}">
                         {{ each_category.name }}
-                    <div *ngIf="each_category.pk != category.length">
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </a>
+                        <div *ngIf="each_category.pk != category.length">
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </a>
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="#">
-            <input class="form-control mr-sm-2" type="search" placeholder="ಅನ್ವೇಷಿಸು"
-                   aria-label="Search" name="search_param">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ಅನ್ವೇಷಿಸು</button>
+        <form for="search-box" class="form-inline my-2 my-lg-0">
+            
+            <input #searchBox [(ngModel)] = "searchValue" class="form-control mr-sm-2"
+                type="search" placeholder="ಅನ್ವೇಷಿಸು" aria-label="Search" name="searchbox">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" 
+                type="button" [routerLink]="['/search']" [queryParams]="{search_params: searchValue}">
+                ಅನ್ವೇಷಿಸು
+            </button>
+
         </form>
     </div>
 </nav>

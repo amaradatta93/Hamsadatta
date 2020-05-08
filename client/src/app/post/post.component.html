@@ -4,20 +4,27 @@
             <img [src]="blogpost?.image" class="img-fluid" alt="blog_post">
         </div>
     </div>
+
     <div class="row  mt-3 justify-content-center align-items-center">
         <div class="col-md-4 text-justify">
-            <h1 class="text-center text-info"> {{ blogpost?.title }} </h1>
+            <h1 class="text-center text-info">
+                {{ blogpost?.title }}
+            </h1>
         </div>
     </div>
+
     <div class="row mb-3 mt-2 justify-content-center align-items-center">
         <div class="angular-with-newlines col-md-6">
             {{ blogpost?.content }}
         </div>
     </div>
+
     <div class="row mb-3 mt-3 justify-content-center align-items-center">
         <div class="col-md-2 col-group list-group-item-info text-start">
             Date: {{ blogpost?.posted }}
         </div>
         <div class="col-md-2 col-group list-group-item-info text-end">
-            Language: {{ blogpost?.language }}</div>
-    </div>
+            Language: {{ blogpost?.language }}
+        </div>
+    </div>    
+</div>

@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PostComponent } from './post/post.component';
 import { CategoryComponent } from './category/category.component';
+import { SearchComponent } from './search/search.component';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component:DashboardComponent },
   { path: 'category/:pk', component: CategoryComponent},
   { path: 'blogpost/:pk', component:PostComponent },
+  { path: 'search', component:SearchComponent },
 ];
 
 @NgModule({
