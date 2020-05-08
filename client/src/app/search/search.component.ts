@@ -20,9 +20,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((param: any) => {
-      this.search_params = param.search_params
+      this.search_params = param.search_params.replace(/\s+/g, '-').toLowerCase();
+      console.log(this.search_params);
       if (this.search_params) {
-        this.searchfetchService.getSearchedPosts(param.search_params)
+        this.searchfetchService.getSearchedPosts(this.search_params)
           .subscribe((response: any) => this.posts = response.posts);
       } else {
         this.router.navigateByUrl('dashboard');
