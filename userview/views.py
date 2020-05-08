@@ -23,7 +23,7 @@ def view_categories_blog_post(request, category_id):
 @csrf_exempt
 def view_search_blog_post(request):
     search_param = request.GET.get('search_param')
-    posts = BlogPost.objects.filter(slug__contains=search_param)
+    posts = list(BlogPost.objects.filter(slug__contains=search_param).values('title', 'pk', 'image'))
     if posts:
         return JsonResponse({'posts': posts})
     else:

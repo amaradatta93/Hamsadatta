@@ -10,6 +10,7 @@ import { Category } from '../models/category';
 })
 export class NavbarComponent implements OnInit {
   category: Category[];
+  searchValue: string;
 
   constructor(private categoryviewService: CategoryviewService) { }
 
