@@ -13,7 +13,24 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import re
+
 import django_heroku
+
+POSTGRES_URL_REGEX = re.compile(
+    r'^postgres:\/\/(?P<username>.*?):(?P<password>.*?)@(?P<host>.*?):(?P<port>\d+)/(?P<db>.*?)$')
+
+
+def get_postgres_settings(url):
+    matches = POSTGRES_URL_REGEX.match(url)
+    return {
+        'name': matches.group('db'),
+        'username': matches.group('username'),
+        'password': matches.group('password'),
+        'host': matches.group('host'),
+        'port': matches.group('port')
+    }
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -98,10 +115,11 @@ WSGI_APPLICATION = 'darpana.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+pg = get_postgres_settings(os.environ.get('DATABASE_URL', 'postgres://hamsadatta:password@127.0.0.1:5432/darpana'))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': DB_NAME,
         'USER': DB_USERNAME,
         'PASSWORD': DB_PASSWORD,
