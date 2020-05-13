@@ -40,7 +40,8 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'test')
+# SECRET_KEY = os.getenv('SECRET_KEY', 'test')
+SECRET_KEY = '1-*0t!4+rqt%a%&l2e_6=y6ko5cxh&a&4s-5c+dxz=zhnd$m2a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -120,11 +121,11 @@ pg = get_postgres_settings(os.environ.get('DATABASE_URL', 'postgres://hamsadatta
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'USER': DB_USERNAME,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': 'localhost',
-        'PORT': DB_PORT,
+        'NAME': pg['name'],
+        'USER': pg['username'],
+        'PASSWORD': pg['password'],
+        'HOST': pg['host'],
+        'PORT': pg['port'],
     }
 }
 
