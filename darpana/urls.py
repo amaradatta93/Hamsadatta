@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 app_name = 'main'
 
@@ -23,4 +24,5 @@ urlpatterns = [
     path('admin-dashboard/', include('dashboard.urls')),
     path('api/user-dashboard/', include('userview.urls')),
     path('blog/', include('blog.urls')),
+    path('', TemplateView.as_view(template_name='index.html'))
 ]
