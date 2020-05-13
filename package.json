@@ -1,9 +1,11 @@
- 
 {
-	"name": "Darpana",
-	"version": "0.1.0",
+  "name": "darpana",
+  "version": "0.1.0",
+    "engines": {
+    "node": "12.16.x"
+  },
 	"scripts": {
-		"postinstall": "npm install --prefix client"
-	}
+    "postinstall": "npm install --prefix client"
+  }
 }
 
