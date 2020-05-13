@@ -40,8 +40,7 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.getenv('SECRET_KEY', 'test')
-SECRET_KEY = '1-*0t!4+rqt%a%&l2e_6=y6ko5cxh&a&4s-5c+dxz=zhnd$m2a'
+SECRET_KEY = os.getenv('SECRET_KEY', 'test')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,14 +55,6 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:4200",
     "http://127.0.0.1:8000"
 ]
-
-
-# USERNAME and PASSWORD
-DB_NAME = os.getenv('DB_NAME')
-DB_USERNAME = os.getenv('DB_USERNAME')
-DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_PORT = os.getenv('DB_PORT', '5432')
-
 
 # Application definition
 
