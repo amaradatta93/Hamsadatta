@@ -28,4 +28,4 @@ urlpatterns = [
     path('api/user-dashboard/', include('userview.urls')),
     path('blog/', include('blog.urls')),
     path('', TemplateView.as_view(template_name='index.html'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL)
