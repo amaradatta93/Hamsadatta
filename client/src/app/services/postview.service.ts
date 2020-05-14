@@ -15,7 +15,7 @@ export class PostviewService {
   constructor(private http: HttpClient) { }
   
   getArticle(id: number): Observable<Article> {
-    let articleUrl = `http://127.0.0.1:8000/api/user-dashboard/posts/${id}`
+    let articleUrl = `../api/user-dashboard/posts/${id}`
     return this.http.get<Article>(articleUrl)
     .pipe(
       map((response:any) => {

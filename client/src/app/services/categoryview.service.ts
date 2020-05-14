@@ -14,7 +14,7 @@ export class CategoryviewService {
 
   constructor(private http: HttpClient) { }
 
-  private categoryUrl = 'http://127.0.0.1:8000/api/user-dashboard/category';
+  private categoryUrl = '../api/user-dashboard/category';
 
   getCategory(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoryUrl)
@@ -27,7 +27,7 @@ export class CategoryviewService {
   }
 
   getCategoryPosts(id): Observable<Dash[]> {
-    let categoryPostUrl = `http://127.0.0.1:8000/api/user-dashboard/categories/${id}`;
+    let categoryPostUrl = `../api/user-dashboard/categories/${id}`;
     return this.http.get<Dash[]>(categoryPostUrl)
     .pipe(
       map((response: any) => {
